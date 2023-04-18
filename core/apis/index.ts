@@ -4,7 +4,7 @@ const isProd = process.env.NEXT_PUBLIC_APP_ENV === "production";
 
 export const api: AxiosInstance = axios.create({
   baseURL: isProd
-    ? "https://portfolio-joometa.vercel.app/api"
+    ? `https://${document.location.hostname}/api`
     : "http://localhost:3000/api",
   headers: {
     "Content-Type": "application/json",
