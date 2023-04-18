@@ -1,13 +1,7 @@
 import Head from "next/head";
-import React, { useEffect } from "react";
-import {
-  GetStaticProps,
-  GetStaticPropsContext,
-  InferGetStaticPropsType,
-} from "next";
-import { Item, Project } from "@components/projects";
-// import { projectApis } from "@core/api/projects";
-import { useGetAllProjectQuery } from "@/core/queries/project";
+import React from "react";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { Item } from "@components/projects";
 import { projectApis } from "@/core/apis/project";
 import { ProjectItem } from "@core/interface/project";
 
@@ -50,12 +44,6 @@ export default function Projects({
               <Item data={d} />
             </React.Fragment>
           ))}
-        {/* {data?.result &&
-          data.result.map((d) => (
-            <React.Fragment key={d.id}>
-              <Item data={d} />
-            </React.Fragment>
-          ))} */}
       </div>
     </>
   );
