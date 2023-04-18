@@ -26,7 +26,9 @@ export function Item({ data }: Props) {
         <div className="title-area">
           {data.title}
           <div className="sub-info">
-            {`[ ${data.work_period.start} - ${data.work_period.end} ]`}
+            {`[ ${data.work_period.start} - ${
+              data.work_period.end ?? "current"
+            } ]`}
           </div>
         </div>
         <div className="content-area">
