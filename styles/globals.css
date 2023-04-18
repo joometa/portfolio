@@ -30,3 +30,11 @@ span {
 p {
   @apply text-slate-500 dark:text-white;
 }
+
+.badge {
+  @apply bg-gray-200 hover:text-slate-900 hover:bg-gray-300 dark:bg-gray-100 dark:hover:bg-gray-50 cursor-pointer;
+}
+
+.project-card {
+  @apply bg-gray-50 dark:bg-slate-600/20 hover:shadow-lg hover:scale-105 dark:border-gray-200/50 dark:hover:shadow-gray-400/40;
+}

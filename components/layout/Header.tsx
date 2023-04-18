@@ -19,8 +19,8 @@ export function Header() {
               className="w-10 h-10 text-white p-2 bg-orange-400 rounded-full"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
               />
             </svg>
@@ -37,11 +37,11 @@ export function Header() {
           <Link href="/projects">
             <span className="mr-5 hover:text-gray-900">Projects</span>
           </Link>
-          <Link href="/contact">
-            <span className="mr-5 hover:text-gray-900">Contact</span>
+          <Link href="/education">
+            <span className="mr-5 hover:text-gray-900">Education</span>
           </Link>
+          <DarkModeToggleButton />
         </nav>
-        <DarkModeToggleButton />
       </div>
     </header>
   );

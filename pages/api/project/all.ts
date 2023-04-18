@@ -21,15 +21,17 @@ const getProjects = async () => {
         res.results.map((data: any) => {
           const p = data.properties;
 
+          const tech =
+            p.Tech.multi_select.length !== 0 &&
+            p.Tech.multi_select.map((data: any) => {
+              return { name: data.name ?? null, color: data.color ?? null };
+            });
+
           const item = {
+            id: data.id ?? null,
             no: p["No."].number ?? null,
             title: p.Title.title[0].plain_text ?? null,
-            tech: [
-              p.Tech.multi_select.length !== 0 &&
-                p.Tech.multi_select.map((data: any) => {
-                  return { name: data.name ?? null, color: data.color ?? null };
-                }),
-            ],
+            tech,
             team: {
               name: p.Team.select.name ?? null,
               color: p.Team.select.color ?? null,
@@ -40,9 +42,10 @@ const getProjects = async () => {
             },
             desc: p.Description.rich_text[0].plain_text ?? null,
             github: p.Github.url ?? null,
-            cover_img: data.cover.external.url ?? null,
+            cover_img: data.cover.external?.url ?? null,
+            url: p.Url.url ?? null,
           };
-          result.push(data);
+          result.push(item);
         })
       );
 

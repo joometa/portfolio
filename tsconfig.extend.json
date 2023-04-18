@@ -5,8 +5,8 @@
       "@/*": ["./*"],
       "@components": ["./components"],
       "@components/*": ["./components/*"],
-      "@interface": ["./interface"],
-      "@interface/*": ["./interface/*"]
+      "@core": ["./core"],
+      "@core/*": ["./core/*"]
     }
   }
 }
