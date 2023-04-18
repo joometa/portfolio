@@ -21,7 +21,6 @@ export default function Detail({
   data,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { theme } = useTheme();
-  console.log("DATA!!", theme);
 
   return (
     <Container theme={theme} className="project-detail">
@@ -44,7 +43,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
           return { params: { id: d.id } };
         })
       : [];
-    console.log("패쓰패쓰", paths);
+
     return {
       paths,
       fallback: true,
@@ -64,7 +63,6 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const h = m * 60;
   const d = h * 24;
 
-  console.log("아이디??\n\n\n", id);
   if (!id) throw new Error("Id is required!");
 
   try {

@@ -19,7 +19,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   try {
     const res = await projectApis.getProjects();
     const result: ProjectItem[] = res.result!;
-    console.log(result);
+
     return {
       props: { list: result },
       revalidate: 60,
@@ -34,9 +34,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 export default function Projects({
   list,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const { data, isLoading } = useGetAllProjectQuery();
-
-  console.log(list);
   return (
     <>
       <Head>
