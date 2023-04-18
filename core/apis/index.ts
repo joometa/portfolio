@@ -3,7 +3,9 @@ import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
 const isProd = process.env.NEXT_PUBLIC_APP_ENV === "production";
 
 export const api: AxiosInstance = axios.create({
-  baseURL: isProd ? "https://jootudio.com/api" : "http://localhost:3000/api",
+  baseURL: isProd
+    ? "https://portfolio-joometa.vercel.app/api"
+    : "http://localhost:3000/api",
   headers: {
     "Content-Type": "application/json",
   },

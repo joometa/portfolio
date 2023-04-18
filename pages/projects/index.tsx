@@ -25,6 +25,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       revalidate: 60,
     };
   } catch (e) {
+    console.log(e);
     return {
       props: { list: [] },
     };
