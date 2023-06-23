@@ -1,8 +1,5 @@
 import React from "react";
-import { useRouter } from "next/router";
 import styled from "@emotion/styled";
-import { useGetProjectQuery } from "@core/queries/project";
-import { ProjectDetailParams } from "@core/interface/project";
 import { NotionRenderer } from "react-notion-x";
 import { useTheme } from "next-themes";
 import { GetStaticProps, InferGetStaticPropsType, GetStaticPaths } from "next";
@@ -14,7 +11,7 @@ import "prismjs/themes/prism-tomorrow.css";
 import "katex/dist/katex.min.css";
 
 interface Props {
-  data: ExtendedRecordMap;
+  data: ExtendedRecordMap | null;
 }
 
 export default function Detail({
@@ -24,12 +21,14 @@ export default function Detail({
 
   return (
     <Container theme={theme} className="project-detail">
-      {data && (
+      {data ? (
         <NotionRenderer
           recordMap={data}
           fullPage={false}
           darkMode={theme === "dark"}
         />
+      ) : (
+        <></>
       )}
     </Container>
   );
@@ -38,7 +37,7 @@ export default function Detail({
 export const getStaticPaths: GetStaticPaths = async () => {
   try {
     const res = await projectApis.getProjects().then((res) => res.result);
-    const paths = res
+    const paths = Array.isArray(res)
       ? res.map((d) => {
           return { params: { id: d.id } };
         })
@@ -57,13 +56,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
-  const id = context.params?.id ?? undefined;
+  const id = context.params?.id ?? null;
 
   const m = 60;
   const h = m * 60;
   const d = h * 24;
 
-  if (!id) throw new Error("Id is required!");
+  if (id == null) throw new Error("Id is required!");
+  const params = { id: id ? String(id) : id };
+  const res = await projectApis.getProject(params);
 
   try {
     const params = { id: id ? String(id) : id };

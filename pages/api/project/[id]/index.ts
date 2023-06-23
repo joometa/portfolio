@@ -27,18 +27,11 @@ const getProject = async ({ id }: Prop) => {
   });
 
   try {
-    const page = (await notion.pages.retrieve({
-      page_id: id,
-    })) as PageObjectResponse;
-    // console.log("PAGE", page.cover.file.url);
-    const cover_url = page.url ?? "";
+    // const page = (await notion.pages.retrieve({
+    //   page_id: id,
+    // })) as PageObjectResponse;
 
     const notionPage = await notionClient.getPage(id);
-
-    const result = {
-      cover_url,
-      notionPage,
-    };
 
     return notionPage;
   } catch (e) {
@@ -48,7 +41,7 @@ const getProject = async ({ id }: Prop) => {
 
 type Data = {
   message: string;
-  result?: ExtendedRecordMap;
+  result: ExtendedRecordMap | null;
 };
 
 export default async function handler(
@@ -58,13 +51,13 @@ export default async function handler(
   const { id } = req.query;
 
   if (id == null) {
-    return res.status(400).json({ message: "no is required" });
+    return res.status(400).json({ message: "no is required", result: null });
   }
 
   try {
-    const result = await getProject({ id: String(id) });
+    const result = (await getProject({ id: String(id) })) ?? null;
     res.status(200).json({ message: "Success", result });
   } catch (e) {
-    res.status(500).json({ message: `Failed => ${e}` });
+    res.status(500).json({ message: `Failed => ${e}`, result: null });
   }
 }
