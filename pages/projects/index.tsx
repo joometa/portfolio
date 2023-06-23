@@ -12,7 +12,7 @@ interface Props {
 export const getStaticProps: GetStaticProps<Props> = async () => {
   try {
     const res = await projectApis.getProjects();
-    const result: ProjectItem[] = res.result!;
+    const result: ProjectItem[] = res?.result ? res.result : [];
 
     return {
       props: { list: result },
