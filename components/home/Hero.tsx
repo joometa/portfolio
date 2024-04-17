@@ -14,7 +14,7 @@ export function Hero() {
         <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium">
           문제 해결을 좋아하는
           <br />
-          프론트엔드 개발자{" "}
+          3년차 프론트엔드 개발자{" "}
           <span className="text-orange-400 dark:text-yellow-400 font-bold">
             이정주
           </span>{" "}

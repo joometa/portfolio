@@ -32,6 +32,7 @@ const getProject = async ({ id }: Prop) => {
     // })) as PageObjectResponse;
 
     const notionPage = await notionClient.getPage(id);
+    console.log({ notionPage });
 
     return notionPage;
   } catch (e) {

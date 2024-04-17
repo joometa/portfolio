@@ -30,7 +30,7 @@ const getProjects = async () => {
           const item = {
             id: data.id ?? null,
             no: p["No."].number ?? null,
-            title: p.Title.title[0].plain_text ?? null,
+            title: p.Title.title[0]?.plain_text ?? null,
             tech,
             team: {
               name: p.Team.select.name ?? null,
@@ -40,7 +40,7 @@ const getProjects = async () => {
               start: p.WorkPeriod.date.start ?? null,
               end: p.WorkPeriod.date.end ?? null,
             },
-            desc: p.Description.rich_text[0].plain_text ?? null,
+            desc: p.Description.rich_text[0]?.plain_text ?? null,
             github: p.Github.url ?? null,
             cover_img: data.cover.external?.url ?? null,
             url: p.Url.url ?? null,
