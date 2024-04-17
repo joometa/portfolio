@@ -71,12 +71,14 @@ export function Item({ data }: Props) {
               </div>
             )}
             <div className="button-box">
-              <button
-                className="github"
-                onClick={() => handleClickGithub(data.github)}
-              >
-                Github
-              </button>
+              {data.github != "null" && (
+                <button
+                  className="github"
+                  onClick={() => handleClickGithub(data.github)}
+                >
+                  Github
+                </button>
+              )}
 
               <button className="more">
                 <div
@@ -223,6 +225,7 @@ const Container = styled.div`
 
         .more {
           width: 50%;
+          padding: 7px;
           border-radius: 10px;
           border: 1.5px solid rgba(229, 231, 235);
           margin: 0 5px;
