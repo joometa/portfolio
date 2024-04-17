@@ -20,6 +20,10 @@ export default function Skill() {
               styled components
             </Item>
             <Item img="/images/tailwind-css-logo.png">Tailwind CSS</Item>
+            <Item img="/images/emotion.png">Emotion</Item>
+            <Item img="/images/scss.webp">SCSS</Item>
+            <Item img="/images/vanilla.png">Vanilla Extract</Item>
+            <Item img="/images/yarn.webp">Yarn Berry</Item>
           </Card>
           <Card title="BackEnd">
             <Item
