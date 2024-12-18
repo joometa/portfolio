@@ -10,7 +10,7 @@ export function Footer() {
               <span className="ml-3 text-xl">PORTFOLIO</span>
             </a>
             <p className="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">
-              © 2023 - jjlee1623@gmail.com
+              © 2024 - jjlee1623@gmail.com
             </p>
             <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
               {/* 깃허브 */}
