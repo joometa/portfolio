@@ -67,7 +67,9 @@ export function Item({ data }: Props) {
             {data.url && (
               <div className="deploy-url">
                 <div className="url-caption">URL</div>
-                <div className="url">{data.url}</div>
+                <div className="url" onClick={() => window.open(data.url)}>
+                  {data.url}
+                </div>
               </div>
             )}
             <div className="button-box">

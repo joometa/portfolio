@@ -21,15 +21,17 @@ export function Hero() {
           입니다.
         </h1>
         <p className="mb-1 leading-relaxed">
-          개발을 통해 일상속 불편함을 풀어낼 수 있도록 노력하고 있습니다.
+          3년차 프론트엔드 개발자로서 스타트업에서 웹서비스를
+          개발/배포/운영하였습니다.
         </p>
         <p className="mb-1 leading-relaxed">
-          “오히려 좋아” 마인드로 항상 긍정적으로 문제 상황에 임합니다.
+          문제 해결은 문제를 어떻게 추상화하여 정의하느냐로 결정된다고
+          생각합니다. 해결책을 고민하기 전에 문제를 제대로 정의하고자 합니다.
         </p>
         <p className="mb-8 leading-relaxed">
-          좋은 서비스는 단순 코드 몇줄로 완성되는것이 아니라 비즈니스적인
-          이해도를 기반으로 협업과 소통을 통해 완전해진다고 생각합니다. 때문에
-          항상 능동적인 커뮤니케이터의 자세로 서비스발전 기여에 노력합니다.
+          몇달 뒤 다시 보았을때 쉽게 이해하고 작업 할 수 있도록 심플하고
+          가독성높은 코드를 작성을 추구합니다. 이는 유지보수나 작업의 효율을
+          높일 수 있는 직접적인 방법이라고 생각하기 때문입니다.
         </p>
         <div className="flex justify-center">
           <button className="btn-project" onClick={() => handleClickProject()}>

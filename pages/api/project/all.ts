@@ -42,7 +42,7 @@ const getProjects = async () => {
             },
             desc: p.Description.rich_text[0]?.plain_text ?? null,
             github: p.Github.url ?? null,
-            cover_img: data.cover.external?.url ?? null,
+            cover_img: data.cover?.external?.url ?? null,
             url: p.Url.url ?? null,
           };
           result.push(item);
@@ -51,6 +51,7 @@ const getProjects = async () => {
 
     return result;
   } catch (e) {
+    // console.log("에러???");
     console.error(e);
   }
 };
